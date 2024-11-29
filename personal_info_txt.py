@@ -13,8 +13,16 @@ with open("./user_info_list.txt", "w") as info_file:
         info_file.write("Name: " + user_name + "\n")
 
         # ask for user age
-        user_age = int(input("Input User Age: "))
-        info_file.write("Age: " + str(user_age) + "\n")
+        while True:
+            try:
+                user_age = int(input("Input User Age: "))
+                if user_age <= 0:
+                    print("Error! Age must be a positive number.")
+                    continue  # Go back to the prompt for a valid input
+                info_file.write("Age: " + str(user_age) + "\n")
+                break  # Exit the loop if input is valid
+            except ValueError:
+                print("Error! Please input a valid integer for age.")
 
         # ask user for favorite color
         user_color = input("Input User Favorite Color: ")
