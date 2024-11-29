@@ -24,8 +24,18 @@ try:
                             
                             print(entire_txt[i], end='')
 
-
 #move to next line if name not found
+                    index += 6  # Skip 6 lines to avoid repeating the user's information
+                else:
+                    # Move to the next line if no match is found
+                    index += 1
+
+            if if_found == 0:
+                print("Name not found!")
 #ask to continue the search
+            if_continue = input("Would you like to seek another person? yes/no ")
+            while if_continue.lower().strip() not in ["yes", "no"]:
+                if_continue = input("Would you like to seek another person? yes/no ")
+
 except:
       print("An error occurred")
