@@ -7,9 +7,24 @@ try:
         while if_continue == "yes":
             if_found = 0
             find_name = input("Input The Name to get Information: ")
+
 #Start searching for name
-#loop to search for name
-#if name found print next few lines
+            index = 0
+
+            # Use a while loop to search for the name in the text file
+            while index < len(entire_txt):
+                line = entire_txt[index]
+                
+                if find_name.strip() in line:
+                    if_found += 1
+                    # If name is found, print the next few lines (user's info)
+                    print("----------------------------------------------------------")
+                    for i in range(index, index + 6):  # Print the next 5 lines (name + 5 more details)
+                        if i < len(entire_txt):  # Ensure the index is in bounds
+                            
+                            print(entire_txt[i], end='')
+
+
 #move to next line if name not found
 #ask to continue the search
 except:
